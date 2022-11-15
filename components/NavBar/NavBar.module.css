@@ -1,0 +1,36 @@
+.header {
+  width: 90%;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+
+.nav_button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  background-color: black;
+  border: none;
+  cursor: pointer;
+  font-size: 3.5rem;
+}
+
+.nav_left {
+  position: relative;
+  left: 0;
+}
+
+.nav_right {
+  position: relative;
+  right: 0;
+}
+
+.hidden {
+  display: none;
+}
+
+.nav_icon {
+  height: 56px;
+  width: 56px;
+}

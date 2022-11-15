@@ -1,5 +1,7 @@
 import { useRef, useEffect, useState } from "react";
-import classes from "../../styles/Home.module.css";
+import classes from "../TimeCards.module.css";
+import { Card } from "../../Card";
+import { Notification } from "../Notification";
 
 export const WithUseEffect = ({ url }) => {
   const [data, setData] = useState();
@@ -36,13 +38,17 @@ export const WithUseEffect = ({ url }) => {
   }, [url]);
 
   return (
-    <div>
-      <p>{"useEffect()"}</p>
-      {data && (
-        <p className={updated ? classes.big_color : classes.big}>
-          {data.split(",")[1]}
-        </p>
-      )}
-    </div>
+    <Card>
+      <div className={classes.container}>
+        <h2 className={classes.title}>useEffect</h2>
+        <>
+          <div className={classes.text_main}>
+            <div className={updated ? classes.text_highlight : classes.text}>
+              {data && data.split(",")[1]}
+            </div>
+          </div>
+        </>
+      </div>
+    </Card>
   );
 };

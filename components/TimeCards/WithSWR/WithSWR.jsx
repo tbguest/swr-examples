@@ -1,7 +1,9 @@
 import useSWR from "swr";
-import classes from "../../styles/Home.module.css";
+import classes from "../TimeCards.module.css";
 import { useRef, useEffect, useState } from "react";
 import { useSWRConfig } from "swr";
+import { Card } from "../../Card";
+import { Notification } from "../Notification";
 
 export const fetcher = (url) => fetch(url).then((res) => res.json());
 
@@ -15,6 +17,8 @@ export const WithSWR = ({ url, opts }) => {
   const firstFetch = useRef(true);
 
   const { cache } = useSWRConfig();
+
+  console.log(cache);
 
   const updatedTimeout = () => {
     setTimeout(function () {
@@ -74,29 +78,21 @@ export const WithSWR = ({ url, opts }) => {
   }, [dataRef, data, cache, url]);
 
   return (
-    <div>
-      <p>Server time:</p>
-      {data && (
+    <Card>
+      <div className={classes.container}>
+        <h2 className={classes.title}>useSWR</h2>
         <>
-          <div className={updated ? classes.big_color : classes.big}>
+          <div className={classes.text_main}>
             <ul className={classes.notifications}>
-              {cacheHit && (
-                <li className={classes.notification_container}>
-                  <div className={classes.notification_item_1}>cache hit!</div>
-                </li>
-              )}
-              {cacheRevalidate && (
-                <li className={classes.notification_container}>
-                  <div className={classes.notification_item_2}>
-                    cache updated!
-                  </div>
-                </li>
-              )}
+              {cacheHit && <Notification text={"cache hit!"} />}
+              {cacheRevalidate && <Notification text={"cache updated!"} />}
             </ul>
-            {data.split(",")[1]}
+            <div className={updated ? classes.text_highlight : classes.text}>
+              {data && data.split(",")[1]}
+            </div>
           </div>
         </>
-      )}
-    </div>
+      </div>
+    </Card>
   );
 };
