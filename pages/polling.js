@@ -8,7 +8,7 @@ export default function Polling() {
     <div className="App">
       <main className={classes.main}>
         <h1>Polling</h1>
-        <NavBar prevUrl="/browser-cache" nextUrl="" />
+        <NavBar prevUrl="/latency" nextUrl="browser-cache" />
         <div className={classes.grid}>
           <WithUseEffect url={"/api/time"} />
           <WithSWR url={"/api/time"} opts={{ refreshInterval: 2000 }} />

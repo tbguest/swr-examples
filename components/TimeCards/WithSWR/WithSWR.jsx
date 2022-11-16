@@ -40,7 +40,6 @@ export const WithSWR = ({ url, opts }) => {
 
   useEffect(() => {
     const handleFocus = () => {
-      console.log("Tab has focus");
       setTabHasFocus(true);
 
       cacheHitTimeout();
@@ -48,7 +47,6 @@ export const WithSWR = ({ url, opts }) => {
     };
 
     const handleBlur = () => {
-      console.log("Tab lost focus");
       setTabHasFocus(false);
     };
 

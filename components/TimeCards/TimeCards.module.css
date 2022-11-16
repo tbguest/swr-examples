@@ -97,3 +97,16 @@
     opacity: 1;
   }
 }
+
+@media (max-width: 768px) {
+  .notifications {
+    font-size: 1rem;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    bottom: 0;
+    left: 4rem;
+    list-style: none;
+    width: 10rem;
+  }
+}

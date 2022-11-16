@@ -8,7 +8,7 @@ export default function Home() {
     <div className="App">
       <main className={classes.main}>
         <h1>SWR</h1>
-        <NavBar prevUrl="" nextUrl="/latency" />
+        <NavBar prevUrl="/browser-cache" nextUrl="/latency" />
         <div className={classes.grid}>
           <WithUseEffect url={"/api/time"} />
           <WithSWR url={"/api/time"} opts={null} />

@@ -8,37 +8,12 @@ export default function BrowserCache() {
     <div className="App">
       <main className={classes.main}>
         <h1>Browser Cache</h1>
-        <NavBar prevUrl="/latency" nextUrl="/polling" />
+        <NavBar prevUrl="/polling" nextUrl="/" />
         <div className={classes.grid}>
-          <WithUseEffect url={"/api/time-delay"} />
-          <WithSWR url={"/api/time-delay"} opts={null} />
+          <WithUseEffect url={"/api/cached-time"} />
+          <WithSWR url={"/api/cached-time"} opts={null} />
         </div>
       </main>
     </div>
   );
 }
-
-// export default function Page2() {
-//   return (
-//     <div className="App">
-//       <main className={classes.main}>
-//         <h1>SWR</h1>
-//         <NavBar prevUrl="page1" nextUrl="/page3" />
-//         <div className={classes.grid}>
-//           <Card>
-//             <WithUseEffect url={"/api/time"} />
-//           </Card>
-//           <Card>
-//             <WithSWR url={"/api/time"} />
-//           </Card>
-//           <Card>
-//             <WithUseEffect url={"/api/cached-time"} />
-//           </Card>
-//           <Card>
-//             <WithSWR url={"/api/cached-time"} />
-//           </Card>
-//         </div>
-//       </main>
-//     </div>
-//   );
-// }

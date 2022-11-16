@@ -8,7 +8,7 @@ export default function Latency() {
     <div className="App">
       <main className={classes.main}>
         <h1>Add Latency</h1>
-        <NavBar prevUrl="/" nextUrl="/browser-cache" />
+        <NavBar prevUrl="/" nextUrl="/polling" />
         <div className={classes.grid}>
           <WithUseEffect url={"/api/time-delay"} />
           <WithSWR url={"/api/time-delay"} opts={null} />
